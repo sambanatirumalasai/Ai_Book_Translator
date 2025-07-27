@@ -1,127 +1,18 @@
-📚 AI_Book_Translator: Translate Books Using Gemini AI
-AI_Book_Translator is a Python-based CLI tool that allows you to translate entire books into your chosen language and tone using Google's Gemini 1.5 Flash model. Built for my CS50P Final Project, this marks my first complete and structured GitHub project! 🎉
+AI_Book_TranslatorA Python-based solution for the translation of structured textual documents, utilizing Google Gemini AI to ensure fidelity in both format and tone.This project presents a comprehensive approach to translating extensive textual works, such as books. It meticulously parses and renders structured content, thereby offering adaptability in selecting the target language and desired stylistic nuance for the translation.✨ Key CapabilitiesHolistic Translation: Facilitates the complete translation of both primary content paragraphs and hierarchical section headings, ensuring output integrity.Google Gemini AI Integration: Leverages the advanced capabilities of Google's Gemini platform to deliver translations characterized by high quality, efficiency, and dependability.Configurable Output Parameters: Provides users with the ability to precisely define the target linguistic medium (e.g., Hindi, French) and the preferred expressive register (e.g., straightforward, formal, conversational).Stylistic Cohesion: Employs Gemini's System Instructions to uphold a consistent and cohesive translation style across the entirety of the document.Operational Resilience: Incorporates sophisticated retry mechanisms for API interactions, effectively mitigating the impact of transient network disruptions or temporary rate limitations.API Key Verification: Conducts an initial validation of the provided Gemini API key, thereby preempting potential operational impediments.Organized Data Output: Produces several meticulously organized output files tailored to diverse analytical and archival requirements:A streamlined text file containing solely the translated content.A comprehensive text file presenting the original and translated content in a parallel format, conducive to comparative analysis.JSON files encapsulating the parsed original content and the fully structured translated book, optimized for programmatic manipulation.Autonomous File Management: All generated files are automatically deposited within the same directory as the input text file, ensuring convenient access.🔑 Obtaining a Gemini API KeyTo access the functionalities of this translator, acquisition of an API key for Google's Gemini platform is requisite.Visit Google AI Studio: Navigate to https://aistudio.google.com/.Sign In: Use your Google account to sign in.Create API Key:In the sidebar, locate and click on the "Get API Key" or "API key" section.Click "Create API key in new project" (or select an existing project if applicable).Copy the generated API key. It is crucial to keep this key secure and never hardcode it directly into your script or commit it to a public version control repository. (This script is designed to securely prompt for it at runtime).🚀 SetupPrerequisitesBefore you begin, ensure you have:Python 3.9 or higher installed.An active internet connection.A Google Gemini API key (obtained as per the instructions above).InstallationSave the Code: Save the provided Python code into a file named project.py in your desired project directory.Create requirements.txt: In the root directory of your project (the same folder as project.py), create a file named requirements.txt and add the following line:google-generativeai
+Install Required Libraries: Open your terminal or command prompt, navigate to your project's root directory, and execute the following command:pip install -r requirements.txt
+If you intend to run the provided unit tests, you will also need pytest:pip install pytest
+📖 Usage1. Prepare Your Input FileYour input text file (e.g., book.txt) must adhere to a specific format for the script to correctly parse chapters/sections and paragraphs.Chapters/Sections: Mark chapter or section titles by enclosing them in {- ... -}.Paragraphs: Separate individual paragraphs by two consecutive newline characters (\n\n).Example book.txt format:{-Introduction-}
 
-✨ Features
-🔄 Translates full books, not just single lines or paragraphs
+This is the first paragraph of the introduction. It provides an overview of the book's purpose.
 
-🧠 Uses Gemini 1.5 Flash with system instructions for better tone and context
+This is the second paragraph. It delves deeper into the initial concepts.
 
-🌍 Supports any target language (Hindi, Tamil, Spanish, etc.)
+{-Chapter 1: The Journey Begins-}
 
-💬 Customize the tone: simple, formal, conversational, and more
+In the quiet village of Eldoria, a young hero embarked on an unexpected journey. His heart was filled with both trepidation and a nascent hope.
 
-📁 Outputs clean translated text, side-by-side full text, and structured JSON
-
-🔐 Securely uses your own Gemini API key
-
-📊 Built with clean, testable Python code structure
-
-🗂️ Project Structure
-bash
-Copy
-Edit
-AI_Book_Translator/
-├── project.py                 # Main CLI app
-├── test_project.py            # Tests for functions
-├── requirements.txt           # Required libraries
-├── book.txt                   # Your input file (example)
-├── *_translated.txt           # Translated output
-├── *_full.txt                 # Original + translated output
-├── *_parsed.json              # Parsed raw book content
-├── *_structured_book.json     # Fully structured book JSON
-└── README.md                  # This file
-🔧 How to Set It Up
-Clone the project
-
-bash
-Copy
-Edit
-git clone https://github.com/<your-username>/AI_Book_Translator.git
-cd AI_Book_Translator
-(Optional) Set up a virtual environment
-
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate        # On Mac/Linux
-venv\Scripts\activate           # On Windows
-Install dependencies
-
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Get your Gemini API key
-
-Go to Google AI Studio
-
-Copy your API key
-
-Run the translator
-
-bash
-Copy
-Edit
-python project.py
-You’ll be prompted for:
-
-Your Gemini API key (secure input)
-
-Target language
-
-Tone (e.g., simple, formal)
-
-📘 Input Format
-Your book.txt file should follow this format:
-
-txt
-Copy
-Edit
-{-Introduction-}
-This is the first paragraph.
-
-This is the second paragraph.
-
-{-Chapter 1-}
-The story begins here.
-
-Another line in chapter 1.
-Paragraphs are separated by blank lines
-
-Headings are wrapped like {–Chapter Name–}
-
-📤 Output Files
-File Name	Description
-*_translated.txt	Clean, translated text
-*_full.txt	Original + translated text side-by-side
-*_parsed.json	Raw parsed book as dictionary
-*_structured_book.json	Fully structured JSON with chapters
-
-🧪 Running Tests
-Run tests using pytest:
-
-bash
-Copy
-Edit
-pytest
-Ensure your test_project.py contains unit tests for at least 3 functions in project.py.
-
-📦 Requirements
-All dependencies are listed in requirements.txt. Install them with:
-
-bash
-Copy
-Edit
-pip install -r requirements.txt
-🪪 License
-This project is released under the MIT License.
-
-🙏 Acknowledgments
-CS50's Introduction to Programming with Python
-
-Google AI Studio
-
-OpenAI and Gemini API documentation
-
-Let me know if you’d like to include badges (e.g., build passing, python version) or a banner logo. I can help you generate one!
+The ancient prophecies spoke of a chosen one, destined to face the shadows that threatened their world. Was he truly that person?
+2. Run the TranslatorOpen your terminal or command prompt, navigate to the directory containing your project.py file and your prepared input book.txt.Execute the script using:python project.py
+3. Follow the PromptsThe script will guide you through a series of interactive prompts:Enter the path to the input text file (e.g., 'book.txt'):Type the name of your input text file (e.g., book.txt) or its full path.Press Enter.(Informational) Output files will be saved to: /your/current/directory/pathEnter your Gemini API key (hidden):Paste your Gemini API key here. Your input will be hidden for security.Press Enter.The script will perform a quick validation test of your API key.Please enter the target language to translate into (e.g., 'Tamil', 'Hindi'):Type the language you desire for the translation (e.g., French, German, Japanese).Press Enter.How do you prefer the choice of words (e.g., 'simple', 'formal', 'conversational'):Choose a tone that best suits your translation needs.Press Enter.The script will then commence the translation process, displaying progress messages in your console.📦 Output FilesUpon successful completion, the following new files will be generated and saved in the same directory as your input file:[your_input_filename]_parsed.json: A JSON file containing the original content of your book, structured as a dictionary of chapters/sections and their respective paragraphs.[your_input_filename]_translated.txt: A clean plain text file containing only the fully translated version of your book, including translated headings.[your_input_filename]_full.txt: A comprehensive plain text file that presents both the original and translated versions of each section and paragraph, ideal for side-by-side comparison and verification.[your_input_filename]_structured_book.json: A JSON file containing the complete structured representation of your translated book, with both original and translated text for each paragraph, organized under its translated chapter titles.✅ TestingThis project includes unit tests to ensure core functionalities work as expected. These tests can be executed using pytest.Ensure pytest is installed:pip install pytest
+Create test_project.py: In the root directory of your project, create a file named test_project.py. This file should contain your test functions, for example, testing convert_txt_to_dict and the Book class methods (add_chapter, add_paragraph_to_last_chapter).Run Tests:pytest
+🚨 Error Handling and TroubleshootingError: Input file '...' not found.:Cause: The path provided for the input file is incorrect, or the file does not exist at the specified location.Solution: Double-check the filename and its full path. Ensure the file is present in the correct directory.MODEL CAN NOT BE SET UP. Please check your API key or network connection.:Cause: Your Gemini API key is invalid, expired, or there's an issue with your network connection preventing access to the Gemini API.Solution: Verify your API key from Google AI Studio. Confirm your internet connection is stable.Error parsing text file. Please arrange text file as specified in README.:Cause: The input text file's formatting (specifically the chapter {-...-} markers and paragraph \n\n separators) does not conform to the expected structure.Solution: Carefully review your book.txt file against the "Prepare Your Input File" section in this README.Failed to translate heading/paragraph '...' (with retries):Cause: This indicates a transient issue during the API call (e.g., a brief network interruption or a temporary rate limit being hit). The script is designed with a retry mechanism.Solution: The script will automatically retry the translation. If a block consistently fails after max_retries attempts, it will output [Translation Failed]. If this occurs frequently, consider increasing the time.sleep duration within the translate_block and translate_heading functions, or check the Gemini API status page for service disruptions.NameError: name 'check_api_key' is not defined (or similar for other functions):Cause: This error means a function was called before its definition appeared in your project.py file. Python executes code sequentially.Solution: Ensure all helper functions (like check_api_key, setup_gemini, etc.) are defined before the main() function in your project.py file.General An unexpected error occurred during the translation process: ...:Cause: A broader, unhandled exception occurred during execution.Solution: Examine the full error message provided in the console for more specific clues. Ensure all prerequisites are met and that all necessary Python libraries are correctly installed.
